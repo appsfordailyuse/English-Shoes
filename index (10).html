@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>English Shoes | Eid Shaandar Collection</title>
+  <meta name="description" content="English Shoes - Premium Footwear in Sargodha"/>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  
+  <style>
+    :root {
+      --primary: #FF00CC;
+      --primary-dark: #9900CC;
+      --secondary: #33CCFF;
+      --accent: #FF9900;
+      --gold: #FFCC00;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(153, 0, 204, 0.3);
+      --transition: all 0.4s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Preloader */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #FF00CC, #9900FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+    
+    .preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top: 4px solid var(--gold);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(255, 0, 204, 0.95), rgba(153, 0, 255, 0.95));
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(153, 0, 204, 0.4);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    
+    .logo i {
+      color: var(--gold);
+      font-size: 1.8rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 5% 4rem;
+      background: linear-gradient(135deg, #FF00CC 0%, #9900FF 50%, #33CCFF 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .hero::before {
+      content: '🌙';
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      font-size: 5rem;
+      opacity: 0.3;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .hero-content {
+      text-align: center;
+      color: var(--white);
+      max-width: 900px;
+      z-index: 2;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 204, 0, 0.2);
+      color: var(--gold);
+      padding: 0.7rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      border: 2px solid var(--gold);
+      font-size: 1.1rem;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .hero h1 span {
+      color: var(--gold);
+      display: block;
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+    
+    .rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .rating i {
+      color: var(--gold);
+      font-size: 1.5rem;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }# ✅ Complete Working Website - Copy & Paste
+
+Yeh raha **100% working code** - isay copy karein aur `index.html` file mein save karein:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>English Shoes | Eid Shaandar Collection</title>
+  <meta name="description" content="English Shoes - Premium Footwear in Sargodha"/>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  
+  <style>
+    :root {
+      --primary: #FF00CC;
+      --primary-dark: #9900CC;
+      --secondary: #33CCFF;
+      --accent: #FF9900;
+      --gold: #FFCC00;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(153, 0, 204, 0.3);
+      --transition: all 0.4s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Preloader */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #FF00CC, #9900FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+    
+    .preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255,255,255,0.3);
+      border-top: 4px solid var(--gold);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(255, 0, 204, 0.95), rgba(153, 0, 255, 0.95));
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(153, 0, 204, 0.4);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    
+    .logo i {
+      color: var(--gold);
+      font-size: 1.8rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+    
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 5% 4rem;
+      background: linear-gradient(135deg, #FF00CC 0%, #9900FF 50%, #33CCFF 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .hero::before {
+      content: '🌙';
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      font-size: 5rem;
+      opacity: 0.3;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .hero-content {
+      text-align: center;
+      color: var(--white);
+      max-width: 900px;
+      z-index: 2;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 204, 0, 0.2);
+      color: var(--gold);
+      padding: 0.7rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      border: 2px solid var(--gold);
+      font-size: 1.1rem;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .hero h1 span {
+      color: var(--gold);
+      display: block;
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+    
+    .rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .rating i {
+      color: var(--gold);
+      font-size: 1.5rem;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .btn {
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #FF9900, #FFCC00);
+      color: var(--dark);
+      box-shadow: 0 5px 20px rgba(255, 153, 0, 0.5);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 153, 0, 0.7);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 3px solid var(--white);
+    }
+    
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: 2rem;
+    }
+    
+    .marquee-text {
+      display: inline-block;
+      animation: marquee 10s linear infinite;
+      color: rgba(255,255,255,0.9);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    
+    /* Sections */
+    section {
+      padding: 5rem 5%;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #FF00CC, #9900FF, #33CCFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .section-header p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* About */
+    .about {
+      background: var(--white);
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .about-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    
+    .about-content h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+    
+    .about-content p {
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+    
+    /* Products */
+    .products {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    
+    .product-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: var(--transition);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(153, 0, 204, 0.3);
+    }
+    
+    .product-image {
+      height: 220px;
+      background: linear-gradient(135deg, #FF00CC, #9900FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .product-image i {
+      font-size: 5rem;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: linear-gradient(135deg, #FF9900, #FFCC00);
+      color: var(--dark);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    
+    .product-info {
+      padding: 1.5rem;
+    }
+    
+    .product-info h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .product-info p {
+      color: #666;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    
+    .product-price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .add-cart {
+      background: linear-gradient(135deg, #FF00CC, #9900FF);
+      color: var(--white);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-size: 1.2rem;
+    }
+    
+    .add-cart:hover {
+      background: linear-gradient(135deg, #FF9900, #FFCC00);
+      color: var(--dark);
+      transform: scale(1.1) rotate(10deg);
+    }
+    
+    /* Info Cards */
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .info-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: var(--transition);
+      border-top: 5px solid transparent;
+      border-image: linear-gradient(135deg, #FF00CC, #9900FF, #33CCFF) 1;
+    }
+    
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(153, 0, 204, 0.3);
+    }
+    
+    .info-card i {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #FF00CC, #9900FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    
+    .info-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+    
+    .info-card p, .info-card a {
+      color: #666;
+      text-decoration: none;
+    }
+    
+    .info-card a:hover {
+      color: var(--primary);
+    }
+    
+    /* Contact */
+    .contact {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: var(--white);
+    }
+    
+    .contact .section-header h2 {
+      color: var(--white);
+      -webkit-text-fill-color: var(--white);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-item i {
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, #FF00CC, #9900FF);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    
+    .contact-item h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .contact-item p, .contact-item a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+    
+    .contact-item a:hover {
+      color: var(--gold);
+    }
+    
+    .map-box {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .map-box i {
+      font-size: 4rem;
+      background: linear-gradient(135deg, #FF00CC, #9900FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    
+    .map-box h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #FF9900, #FFCC00);
+      color: var(--dark);
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 1rem;
+      transition: var(--transition);
+    }
+    
+    .map-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(255, 153, 0, 0.5);
+    }
+    
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #FF00CC, #9900FF, #33CCFF);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      text-align: center;
+      color: var(--white);
+      padding: 5rem 5%;
+    }
+    
+    .cta h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+    
+    .cta p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+    
+    /* Footer */
+    footer {
+      background: #0f0f1e;
+      color: rgba(255,255,255,0.7);
+      padding: 2rem 5%;
+      text-align: center;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FF00CC, #9900FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.3rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background: linear-gradient(135deg, #FF9900, #FFCC00);
+      color: var(--dark);
+      transform: translateY(-5px);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 80%;
+        height: calc(100vh - 70px);
+        background: linear-gradient(135deg, rgba(255, 0, 204, 0.98), rgba(153, 0, 255, 0.98));
+        flex-direction: column;
+        padding: 2rem;
+        transition: var(--transition);
+      }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <i class="fas fa-shoe-prints"></i>
+      English Shoes
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge" data-aos="fade-down">
+        ✨ Eid Shaandar Collection ✨
+      </div>
+      <h1 data-aos="fade-up">
+        Step Into Timeless
+        <span>ELEGANCE</span>
+      </h1>
+      <p data-aos="fade-up">Premium Footwear for Your Special Celebrations</p>
+      
+      <div class="rating" data-aos="fade-up">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <i class="far fa-star"></i>
+        <span style="font-weight: 700;">2.7 Rating on Google</span>
+      </div>
+      
+      <div class="hero-buttons" data-aos="fade-up">
+        <a href="https://facebook.com" target="_blank" class="btn btn-primary">
+          <i class="fas fa-shopping-bag"></i> Shop Now
+        </a>
+        <a href="tel:+92483765765" class="btn btn-outline">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+      </div>
+      
+      <div class="marquee">
+        <div class="marquee-text">
+          >>> SHOP NOW >>> SHOP NOW >>> SHOP NOW >>> SHOP NOW >>>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="section-header" data-aos="fade-up">
+      <h2>About Us</h2>
+      <p>Your trusted footwear destination in Sargodha</p>
+    </div>
+    
+    <div class="about-grid">
+      <div class="about-image" data-aos="fade-right">
+        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800" alt="English Shoes"/>
+      </div>
+      <div class="about-content" data-aos="fade-left">
+        <h3>Quality Shoes, Unbeatable Prices</h3>
+        <p>Welcome to <strong>English Shoes</strong>, your premier footwear destination in Sultan Colony, Sargodha. We specialize in providing high-quality shoes for men, women, and children.</p>
+        <p>Located in <strong>Chen One Tower</strong>, we're committed to helping you find the perfect pair for every occasion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Our Collection</h2>
+      <p>Explore our wide range of stylish footwear</p>
+    </div>
+    
+    <div class="products-grid">
+      <div class="product-card" data-aos="fade-up">
+        <div class="product-image">
+          <i class="fas fa-shoe-prints"></i>
+          <span class="product-badge">New</span>
+        </div>
+        <div class="product-info">
+          <h4>Men's Formal Shoes</h4>
+          <p>Elegant leather shoes for office and special occasions.</p>
+          <div class="product-price">
+            <span class="price">From Rs. 2,499</span>
+            <button class="add-cart"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card" data-aos="fade-up">
+        <div class="product-image">
+          <i class="fas fa-running"></i>
+        </div>
+        <div class="product-info">
+          <h4>Sports & Casual</h4>
+          <p>Comfortable sneakers for everyday wear.</p>
+          <div class="product-price">
+            <span class="price">From Rs. 1,999</span>
+            <button class="add-cart"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card" data-aos="fade-up">
+        <div class="product-image">
+          <i class="fas fa-female"></i>
+          <span class="product-badge">Popular</span>
+        </div>
+        <div class="product-info">
+          <h4>Women's Collection</h4>
+          <p>Stylish heels, flats, and sandals.</p>
+          <div class="product-price">
+            <span class="price">From Rs. 2,199</span>
+            <button class="add-cart"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card" data-aos="fade-up">
+        <div class="product-image">
+          <i class="fas fa-child"></i>
+        </div>
+        <div class="product-info">
+          <h4>Kids Footwear</h4>
+          <p>Durable and fun shoes for kids.</p>
+          <div class="product-price">
+            <span class="price">From Rs. 1,499</span>
+            <button class="add-cart"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="about">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Why Choose Us</h2>
+      <p>We're dedicated to providing the best experience</p>
+    </div>
+    
+    <div class="info-cards">
+      <div class="info-card" data-aos="fade-up">
+        <i class="fas fa-map-marker-alt"></i>
+        <h4>Location</h4>
+        <p>Sultan Colony, Chen One Tower<br/>Sargodha, Pakistan</p>
+      </div>
+      
+      <div class="info-card" data-aos="fade-up">
+        <i class="fas fa-clock"></i>
+        <h4>Hours</h4>
+        <p>Saturday: 10:00 AM – 10:00 PM<br/>Open 7 Days</p>
+      </div>
+      
+      <div class="info-card" data-aos="fade-up">
+        <i class="fas fa-phone"></i>
+        <h4>Contact</h4>
+        <p><a href="tel:+92483765765">+92 48 3765765</a><br/><a href="https://facebook.com">Facebook</a></p>
+      </div>
+      
+      <div class="info-card" data-aos="fade-up">
+        <i class="fas fa-shipping-fast"></i>
+        <h4>Easy Access</h4>
+        <p>Central location<br/>Plus Code: 3M7R+MX</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Visit Us</h2>
+      <p>Find the perfect pair at our store</p>
+    </div>
+    
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item" data-aos="fade-right">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Address</h4>
+            <p>Sultan Colony, Chen One Tower<br/>Sargodha, Pakistan<br/>Plus Code: 3M7R+MX</p>
+          </div>
+        </div>
+        
+        <div class="contact-item" data-aos="fade-right">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+92483765765">+92 48 3765765</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-item" data-aos="fade-right">
+          <i class="fab fa-facebook"></i>
+          <div>
+            <h4>Social Media</h4>
+            <p><a href="https://facebook.com" target="_blank">Visit Facebook Page</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-item" data-aos="fade-right">
+          <i class="fas fa-clock"></i>
+          <div>
+            <h4>Working Hours</h4>
+            <p>Saturday: 10 AM – 10 PM<br/>Open all week</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="map-box" data-aos="fade-left">
+        <i class="fas fa-map-marked-alt"></i>
+        <h4>English Shoes</h4>
+        <p>Chen One Tower, Sultan Colony<br/>Sargodha, Pakistan</p>
+        <a href="https://maps.app.goo.gl/8qsncMeeRNTLmCiy7" target="_blank" class="map-link">
+          <i class="fas fa-external-link-alt"></i> Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <h3 data-aos="fade-up">Ready to Upgrade Your Footwear?</h3>
+    <p data-aos="fade-up">Visit English Shoes today and step into comfort, style, and quality!</p>
+    <a href="tel:+92483765765" class="btn btn-primary" data-aos="fade-up">
+      <i class="fas fa-phone"></i> Call Now: +92 48 3765765
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 <strong>English Shoes</strong>. All Rights Reserved.</p>
+    <p style="margin-top:0.5rem;font-size:0.85rem">📍 Sultan Colony, Chen One Tower, Sargodha</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+    
+    // Preloader
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('hidden');
+      }, 500);
+    });
+    
+    // Mobile Menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+    
+    // Add to cart animation
+    document.querySelectorAll('.add-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.innerHTML = '<i class="fas fa-check"></i>';
+        this.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+        setTimeout(() => {
+          this.innerHTML = '<i class="fas fa-shopping-cart"></i>';
+          this.style.background = '';
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
